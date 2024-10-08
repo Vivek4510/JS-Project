@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotham recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>GOTHAM RECIPE FINDER</h1>
+            <form>
+                <select name="types" id="dropdown">
+                    <option value="name">NAME</option>
+                    <option value="country">COUNTRY</option>
+                    <option value="category">CATEGORY</option>
+                </select>
+                <input type="text" placeholder="Search for recipe" id="searchbox">
+                <button type="submit" id="searchbtn">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div id="container">
+                <h2>Search for your favorite recipes</h2>
+            </div>
+
+            <div id="recipecontainer">
+                <button type="button" id="closebtn">close</button>
+                <div id="recipebox"></div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>

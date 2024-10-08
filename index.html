@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(./background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .container {
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            margin-right: 12%;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(14, 219, 14);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: rgb(34, 197, 34);
+        }
+        .error, .success {
+            color: red;
+            margin-top: 10px;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="formTitle">Sign Up</h2>
+        <form id="userForm">
+            <input type="text" id="username" placeholder="Enter username" required>
+            <input type="password" id="password" placeholder="Enter password" required>
+            <button type="submit" id="formBtn">Sign Up</button>
+        </form>
+        <p id="message" class="error"></p>
+        <p id="successMessage" class="success"></p>
+        <p id="toggleText">Already have an account? <a href="#" id="toggleForm">Log In</a></p>
+    </div>
+
+    <script>
+        const formTitle = document.getElementById('formTitle');
+        const formBtn = document.getElementById('formBtn');
+        const userForm = document.getElementById('userForm');
+        const toggleText = document.getElementById('toggleText');
+        const toggleForm = document.getElementById('toggleForm');
+        const message = document.getElementById('message');
+        const successMessage = document.getElementById('successMessage');
+
+        let isLoginMode = false;
+
+        // Switch between Login and Sign Up form
+        toggleForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            isLoginMode = !isLoginMode;
+
+            if (isLoginMode) {
+                formTitle.textContent = 'Log In';
+                formBtn.textContent = 'Log In';
+                toggleText.innerHTML = "";
+                message.textContent = '';
+            } else {
+                formTitle.textContent = 'Sign Up';
+                formBtn.textContent = 'Sign Up';
+                toggleText.innerHTML = `Already have an account? <a href="#">Log In</a>`;
+                message.textContent = '';
+            }
+        });
+
+        // Form submission handler
+        userForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (isLoginMode) {
+                login(username, password);
+            } else {
+                signUp(username, password);
+            }
+        });
+
+        // Sign Up function
+        function signUp(username, password) {
+            if (localStorage.getItem(username)) {
+                message.textContent = 'Username already exists. Please choose another one.';
+                successMessage.textContent = '';
+            } else {
+                localStorage.setItem(username, password);
+                successMessage.textContent = 'Sign Up successful! You can now log in.';
+                message.textContent = '';
+                clearForm();
+            }
+        }
+
+        // Login function
+        function login(username, password) {
+            const storedPassword = localStorage.getItem(username);
+            if (storedPassword === password) {
+                successMessage.textContent = 'Login successful! Welcome, ' + username + '.';
+                message.textContent = '';
+                clearForm();
+                window.open("recipe.html","_self")
+            } 
+            else {
+                message.textContent = 'Invalid username or password.';
+                successMessage.textContent = '';
+            }
+        }
+
+        // Clear form fields
+        function clearForm() {
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
+
+</body>
+</html>
