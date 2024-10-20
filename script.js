@@ -25,7 +25,6 @@ btn.addEventListener("click",(e)=>{
     document.getElementById("searchbox").value = "";
 });
 
-let emp=[];
 
 async function recipe(input) {
     if(dropdown.value==opt1){
@@ -50,6 +49,7 @@ async function recipe(input) {
             let cartbtn = document.createElement("button");
             cartbtn.textContent = "Add to cart";
             cartbtn.addEventListener("click",()=>{
+                let emp = JSON.parse(localStorage.getItem("recipe")) || [];
                 emp.push(food)
                 localStorage.setItem("recipe",JSON.stringify(emp));
             });

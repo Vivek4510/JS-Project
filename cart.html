@@ -22,13 +22,15 @@
     <script>
 
     let cartContainer = document.getElementById("cart-container");
-    let storedRecipes = JSON.parse(localStorage.getItem("recipe"))  ;
-
+    
     function displayCart() {
+        let storedRecipes = JSON.parse(localStorage.getItem("recipe"));
+
         let recipecontainer = document.getElementById("recipecontainer");
         let closebtn = document.getElementById("closebtn");
         let recipebox = document.getElementById("recipebox");
-        cartContainer.innerHTML = ""; 
+
+        cartContainer.innerHTML = "";
 
         if (storedRecipes.length === 0) {
             cartContainer.innerHTML = "<h2>Your cart is empty!</h2>";
@@ -47,7 +49,9 @@
             let close = document.createElement("button");
             close.innerText = "Remove from cart"
             close.addEventListener("click",()=>{
-                box.style.display = "none";
+                box.remove();
+                storedRecipes.splice(index, 1);
+                localStorage.setItem("recipe", JSON.stringify(storedRecipes));
             })
 
             let recipebtn = document.createElement("button");
