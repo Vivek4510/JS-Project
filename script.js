@@ -1,5 +1,6 @@
 let btn = document.getElementById("searchbtn");
 let container = document.getElementById("container");
+let distxt = document.getElementById("distxt");
 let dropdown = document.getElementById("dropdown");
 let recipecontainer = document.getElementById("recipecontainer");
 let closebtn = document.getElementById("closebtn");
@@ -24,12 +25,13 @@ btn.addEventListener("click",(e)=>{
 
 async function recipe(input) {
     if(dropdown.value==opt1){
-        container.innerHTML = "Getting your recipes ready..."
+        distxt.innerHTML = "Getting your recipes ready..."
         try{
         let apicall1 = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
         let data1 = await apicall1.json();
 
         container.innerHTML = "";
+        distxt.innerHTML = "";
         data1.meals.map(food =>{
             let box = document.createElement("div");
             box.classList.add("box");
@@ -60,7 +62,7 @@ async function recipe(input) {
         });
     }
     catch(error){
-        container.innerHTML = "<h1>Sorry!!! Unable to find the meal</h1>"
+        distxt.innerHTML = "<h1>Sorry!!! Unable to find the meal</h1>"
     }
 
 }
@@ -103,6 +105,7 @@ async function recipe(input) {
     //search bycountry
     if(dropdown.value==opt2){
         container.innerHTML = ""
+        distxt.innerHTML = ""
         let apicall2 = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${input}`)
         let data2 = await apicall2.json();
 
@@ -120,6 +123,7 @@ async function recipe(input) {
 
 
     if(dropdown.value==opt3){
+        distxt.innerHTML = ""
         container.innerHTML = ""
         let apicall3 = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${input}`)
         let data3 = await apicall3.json();

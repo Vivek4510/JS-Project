@@ -5,7 +5,11 @@
 }
 @font-face {
     font-family: batman;
-    src: url(./batman.ttf);
+    src: url(./BeautifulPeoplePersonalUse-dE0g.ttf);
+}
+@font-face {
+    font-family: batman1;
+    src: url(./YouthTouchDemoRegular-4VwY.ttf);
 }
 header{
     position: sticky;
@@ -24,7 +28,12 @@ header nav{
 
 header nav h1{
     padding-left: 20px;
+    font-family: batman;
     letter-spacing: 3px;
+    background: #FDFF00;
+    background: linear-gradient(to right, #FDFF00 0%, #988829 25%, #746e6e 50%, #5d636f 75%, #505C7C 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header nav form{
@@ -66,7 +75,13 @@ form button:hover,.box button:hover{
     grid-template-columns: 30% 30% 30%;
     gap: 30px;
     justify-content: space-evenly;
-    margin: 20px 20px;
+    align-items: center;
+}
+section>h2{
+    font-size:xx-large;
+    font-family: batman1;
+    text-align: center;
+    padding-top: 20px;
 }
 body{
     background-color: aqua;
@@ -77,12 +92,16 @@ body{
     height: 50%;
     border-radius: 10px 10px 0px 0px;
 }
+body{
+    background-color: #c1bdbe;
+}
 .box{
     border: 2px solid black;
     background-color: white;
     display: flex;
-    width: 75%;
-    height:95%;
+    width: 90%;
+    height:90%;
+    margin-left: 4%;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgb(78,73,73);
