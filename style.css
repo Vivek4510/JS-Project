@@ -82,9 +82,7 @@ section>h2{
     font-family: batman1;
     text-align: center;
     padding-top: 20px;
-}
-body{
-    background-color: aqua;
+    text-shadow: 2px 0 #a18b8b;
 }
 
 .box img{
@@ -93,7 +91,7 @@ body{
     border-radius: 10px 10px 0px 0px;
 }
 body{
-    background-color: #c1bdbe;
+    background-color: #f0f0f0 ;
 }
 .box{
     border: 2px solid black;

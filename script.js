@@ -15,7 +15,9 @@ btn.addEventListener("click",(e)=>{
     e.preventDefault();
     let input = document.getElementById("searchbox").value.trim();
     if(!input){
-        container.innerHTML = `<h1>Type any meal in search box</h1>`;
+        distxt.innerHTML = `<h1>Type any meal in search box</h1>`;
+        distxt.style.color = "red";
+        distxt.style.textShadow = "2px 0 #000";
         return;
     }
     recipe(input);
@@ -26,6 +28,7 @@ btn.addEventListener("click",(e)=>{
 async function recipe(input) {
     if(dropdown.value==opt1){
         distxt.innerHTML = "Getting your recipes ready..."
+        distxt.style.textShadow = "2px 0 #fff";
         try{
         let apicall1 = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
         let data1 = await apicall1.json();
@@ -63,6 +66,7 @@ async function recipe(input) {
     }
     catch(error){
         distxt.innerHTML = "<h1>Sorry!!! Unable to find the meal</h1>"
+        distxt.style.textShadow = "2px 0 #000";
     }
 
 }
