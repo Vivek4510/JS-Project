@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: batman;
+    src: url(./BeautifulPeoplePersonalUse-dE0g.ttf);
+}
+body {
+    background-color: #f0f0f0 ;
+}
+header{
+    background-color: black;
+    height: 120px;
+}
+header i{
+    font-size:larger;
+    margin:20px 0px 0px 15px;
+    cursor: pointer;
+}
+header h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: batman;
+}
+#cart-container {
+    text-align: center;
+    display: grid;;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cart-box {
+    border: 2px solid black;
+    background-color: white;
+    display: flex;
+    width: 90%;
+    height:80%;
+    margin-left: 4%;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgb(78,73,73);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.cart-box img {
+    width: 100%;
+    height: 40%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cart-box h2 {
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.cart-box p {
+    font-size: 20px;
+    margin-top: 10px;
+    font: bold;
+}
+
+.cart-box button {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    margin: 10px auto;
+    border: none;
+    background-color: red;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.cart-box:hover{
+    transform: scale(1.05);
+}
+.notice {
+    color: #777;
+    font-style: italic;
+}

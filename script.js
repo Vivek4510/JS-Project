@@ -25,6 +25,8 @@ btn.addEventListener("click",(e)=>{
     document.getElementById("searchbox").value = "";
 });
 
+let emp=[];
+
 async function recipe(input) {
     if(dropdown.value==opt1){
         distxt.innerHTML = "Getting your recipes ready..."
@@ -45,6 +47,14 @@ async function recipe(input) {
             <p>${food.strCategory} Dish</p>
 
             `
+            let cartbtn = document.createElement("button");
+            cartbtn.textContent = "Add to cart";
+            cartbtn.addEventListener("click",()=>{
+                emp.push(food)
+                localStorage.setItem("recipe",JSON.stringify(emp));
+            });
+
+
             let recipebtn = document.createElement("button");
             recipebtn.textContent = "View Recipe";
             recipebtn.addEventListener("click",()=>{
@@ -61,6 +71,7 @@ async function recipe(input) {
 
             box.appendChild(recipebtn);
             box.appendChild(ytbtn);
+            box.appendChild(cartbtn);
             container.appendChild(box);
         });
     }
@@ -144,4 +155,8 @@ async function recipe(input) {
         });
     }
     
+}
+
+function carts(){
+    window.open("./cart.html","_self");
 }

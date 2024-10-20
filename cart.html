@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotham Cart</title>
+    <script src="https://kit.fontawesome.com/8ef58680e4.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./image.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <i class="fa-solid fa-arrow-right fa-rotate-180" style="color: #FFD43B;" onclick="back()"></i>
+        <h1 style="color: white;">Your favorite Recipes...</h1>
+    </header>
+    <div id="cart-container"></div>
+    <div id="recipecontainer" style="display:none;">
+        <button id="closebtn">Close</button>
+        <div id="recipebox"></div>
+    </div>
+    <script>
+
+    let cartContainer = document.getElementById("cart-container");
+    let storedRecipes = JSON.parse(localStorage.getItem("recipe"))  ;
+
+    function displayCart() {
+        let recipecontainer = document.getElementById("recipecontainer");
+        let closebtn = document.getElementById("closebtn");
+        let recipebox = document.getElementById("recipebox");
+        cartContainer.innerHTML = ""; 
+
+        if (storedRecipes.length === 0) {
+            cartContainer.innerHTML = "<h2>Your cart is empty!</h2>";
+            return;
+        }
+
+        storedRecipes.forEach((food, index) => {
+            let box = document.createElement("div");
+            box.classList.add("cart-box");
+            box.innerHTML = `
+                <img src="${food.strMealThumb}" alt="${food.strMeal}">
+                <h2>${food.strMeal}</h2>
+                <p>${food.strArea} Cuisine</p>
+                <p>${food.strCategory} Dish</p>
+            `;
+            let close = document.createElement("button");
+            close.innerText = "Remove from cart"
+            close.addEventListener("click",()=>{
+                box.style.display = "none";
+            })
+
+            let recipebtn = document.createElement("button");
+            recipebtn.textContent = "View Recipe";
+            recipebtn.addEventListener("click",()=>{
+                openrecipe(food);
+            });
+
+            let ytbtn = document.createElement("button");
+            ytbtn.textContent = "YOUTUBE";
+            ytbtn.style.backgroundColor = "red";
+            ytbtn.style.color = "white";
+            ytbtn.addEventListener("click",()=>{
+                window.open(`${food.strYoutube}`,"_self");
+            })
+
+            box.appendChild(recipebtn);
+            box.appendChild(ytbtn);
+            box.appendChild(close);
+            cartContainer.appendChild(box);
+        });
+
+        
+        
+        let fetchIngredients = (food)=>{
+            let inglist = "";
+            for(i=1;i<=20;i++){
+                let ings = food[`strIngredient${i}`];
+                if(ings){
+                    let measure = food[`strMeasure${i}`];
+                    inglist += `<li>${ings} : ${measure}</li>`
+                }
+                else{
+                    break;
+                }
+            }
+            return inglist;
+        }
+    
+    
+        let openrecipe = (food)=>{
+            recipebox.innerHTML = `
+            <h1 class="name">${food.strMeal}</h1>
+            <h3>INGREDIENTS : </h3>
+            <ul class="inglist">${fetchIngredients(food)}</ul>
+            <div class="process">
+            <h3>PROCESS : </h3>
+            <p>${food.strInstructions}</p>
+            </div>
+            `
+            recipebox.parentElement.style.display = "block";
+        }
+    
+        closebtn.addEventListener("click",()=>{
+            recipecontainer.style.display = "none";
+        })
+    }
+
+
+displayCart();
+
+function back(){
+    window.open("./recipe.html","_self");
+}
+
+    </script>
+</body>
+</html>
