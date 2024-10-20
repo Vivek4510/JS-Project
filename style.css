@@ -47,16 +47,19 @@ header nav input{
     padding: 10px;
     border-radius: 10px;
     border: none;
+    font-family: "Playfair Display", serif;
 }
 #searchbtn, #cartbtn{
     border-radius: 10px;
     border: none;
     padding: 10px;
+    font-family: "Playfair Display", serif;
 }
 form select{
     margin-right: 10px;
     border-radius: 10px;
     padding: 10px;
+    font-family: "Playfair Display", serif;
 }
 #searchbtn,#cartbtn{
     background-color: red;
@@ -75,7 +78,6 @@ form button:hover,.box button:hover{
     display: grid;;
     grid-template-columns: 30% 30% 30%;
     justify-content: space-evenly;
-    align-items: center;
 }
 section>h2{
     font-size:xx-large;
@@ -83,11 +85,12 @@ section>h2{
     text-align: center;
     padding-top: 20px;
     text-shadow: 2px 0 #a18b8b;
+    font-family: "Playfair Display", serif;
 }
 
 .box img{
     width: 100%;
-    height: 40%;
+    height: 45%;
     border-radius: 10px 10px 0px 0px;
 }
 body{
@@ -98,24 +101,27 @@ body{
     background-color: white;
     display: flex;
     width: 90%;
-    height:80%;
+    height:85%;
     margin-left: 4%;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgb(78,73,73);
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    
 }
 .box:hover{
     transform: scale(1.05);
 }
 .box h2{
     font-size: 35px;
+    font-family: "Playfair Display", serif;
     margin-top: 10px;
 }
 .box p{
     font-size: 20px;
     margin-top: 10px;
+    font-family: "Playfair Display", serif;
     font: bold;
 }
 .box button{
@@ -126,6 +132,7 @@ body{
     cursor: pointer;
     width: 50%;
     margin: 10px auto;
+    font-family: "Playfair Display", serif;
     border: none;
     background-color: red;
     color: white;
@@ -139,6 +146,7 @@ body{
     transform: translate(-50%,-50%);
     background-color: bisque;
     -webkit-transform: translate(-50%,-40%);
+    font-family: "Playfair Display", serif;
     border-radius: 15px;
     width: 60%;
     height: 75%;
@@ -148,10 +156,12 @@ body{
 }
 #recipecontainer button{
     margin-right: 20px;
+    font-family: "Playfair Display", serif;
     margin-top: 10px;
     width: 60px;
 }
 #recipebox{
+    font-family: "Playfair Display", serif;
     padding: 30px;
 }
 #recipebox .name{
@@ -170,6 +180,16 @@ body{
 }
 #closebtn{
     float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    width: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    font-size: 20px;
+}
+#closebtn:hover{
+    color: red;
+    transform: scale(1.25);
 }
 ::-webkit-scrollbar{
     display: none;

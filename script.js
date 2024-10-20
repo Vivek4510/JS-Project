@@ -47,7 +47,7 @@ async function recipe(input) {
 
             `
             let cartbtn = document.createElement("button");
-            cartbtn.textContent = "Add to cart";
+            cartbtn.textContent = "Add to Favorites";
             cartbtn.addEventListener("click",()=>{
                 let emp = JSON.parse(localStorage.getItem("recipe")) || [];
                 emp.push(food)
