@@ -56,6 +56,7 @@ async function recipe(input) {
 
 
             let recipebtn = document.createElement("button");
+            recipebtn.classList.add("b1")
             recipebtn.textContent = "View Recipe";
             recipebtn.addEventListener("click",()=>{
                 openrecipe(food);

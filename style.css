@@ -101,7 +101,7 @@ body{
     background-color: white;
     display: flex;
     width: 90%;
-    height:85%;
+    height:80%;
     margin-left: 4%;
     flex-direction: column;
     border-radius: 10px;
@@ -125,9 +125,9 @@ body{
     font: bold;
 }
 .box button{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     width: 50%;
@@ -206,14 +206,134 @@ body{
 }
 
 @media screen and (max-width:600px){
-    header nav{
+    header nav {
         flex-direction: column;
+        align-items: center;
+        height: 120px;
     }
-    header nav form{
-        width: 80%;
-        margin-bottom:18px;
+
+    header nav h1 {
+        font-size: 20px;
+        padding-top: 10px;
+        padding-left: 10px;
+        text-align: center;
     }
-    header nav h1{
+
+    header nav form {
+        width: 90%;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    #container {
+        grid-template-columns: 100%;
+        justify-content: center;
+        gap: 0px;
+    }
+
+    .box {
+        width: 60%;
+        height: 80%;
+        margin-left: 20%;
+    }
+
+    .box img {
+        height: 40%; 
+    }
+
+    .box h2 {
+        font-size: 20px;
+    }
+
+    .box p {
+        font-size: 16px;
+    }
+
+    .box button {
+        font-size: 18px;
+        width: 70%;
+        padding: 10px;
+    }
+    .box1 .b1{
         margin-top: 10px;
+    }
+    #recipecontainer {
+        width: 70%;
+        height: 70%;
+        padding: 10px;
+    }
+
+    #recipebox {
+        padding: 15px;
+    }
+
+    #closebtn {
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    #countryimg, #catimg {
+        height: 50%;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media screen and (max-width:375px) {
+
+    header nav {
+        flex-direction: column; 
+        align-items: center;
+        height: auto;
+    }
+
+    header nav h1 {
+        font-size: 18px; 
+        padding-left: 5px; 
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    header nav form {
+        width: 100%; 
+        margin-bottom: 10px; 
+        justify-content: center;
+    }
+
+    header nav input {
+        font-size: 12px; 
+    }
+
+    #searchbtn, #cartbtn {
+        font-size: 12px; 
+    }
+
+    form select {
+        font-size: 8px;
+        margin-left: 15%;
+    }
+
+    .box{
+        height: 95%;
+    }
+    .box button{
+        font-size: 10px;
+        padding: 5px;
+    }
+    #recipecontainer{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:320px) {
+
+    body{
+        width: 120%;
+    }
+    nav form{
+        padding-top: 10px;
     }
 }
