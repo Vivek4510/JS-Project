@@ -283,7 +283,9 @@ body{
 }
 
 @media screen and (max-width:426px) {
-
+    body{
+        width: 110%;
+    }
     header nav {
         flex-direction: column; 
         align-items: center;
