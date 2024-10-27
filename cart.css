@@ -26,7 +26,7 @@ header h1{
 }
 #cart-container {
     text-align: center;
-    display: grid;;
+    display: grid;
     grid-template-columns: 30% 30% 30%;
     justify-content: space-evenly;
     align-items: center;
@@ -83,4 +83,92 @@ header h1{
 .notice {
     color: #777;
     font-style: italic;
+}
+
+/* For screens up to 600px wide */
+@media (max-width: 770px) {
+    header {
+        height: 100px;
+    }
+    header h1 {
+        font-size: 24px;
+    }
+    #cart-container {
+        margin-top: 20px;
+        grid-template-columns: 30% 30% 30%;
+    }
+    .cart-box {
+        width: 100%;
+        margin-left: 0;
+        height: 100%;
+    }
+    .cart-box h2 {
+        font-size: 28px;
+    }
+    .cart-box p {
+        font-size: 18px;
+    }
+    .cart-box button {
+        font-size: 18px;
+        padding: 8px;
+        width: 80%;
+    }
+}
+
+/* For screens up to 451px wide */
+@media (max-width: 451px) {
+    header {
+        height: 80px;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    #cart-container {
+        margin-top: 20px;
+        grid-template-columns: 60%;
+        gap: 10px;
+    }
+    header i {
+        font-size: medium;
+    }
+    .cart-box h2 {
+        font-size: 24px;
+    }
+    .cart-box p {
+        font-size: 16px;
+    }
+    .cart-box button {
+        font-size: 16px;
+        padding: 6px;
+        width: 60%;
+    }
+}
+
+
+/* For screens up to 321px wide */
+@media (max-width: 426px) {
+    header {
+        height: 90px;
+    }
+    header h1 {
+        font-size: 18px;
+    }
+    .cart-box {
+        margin-left: 0;
+        height: auto;
+    }
+    .cart-box h2 {
+        font-size: 20px;
+    }
+    .cart-box p {
+        font-size: 14px;
+    }
+    .cart-box button {
+        font-size: 14px;
+        padding: 5px;
+        width: 70%;
+    }
+    .notice {
+        font-size: 12px;
+    }
 }
